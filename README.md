@@ -1,2 +1,2 @@
 # wp-simple-chatbot
-This is my simple chatbot addons in wordpress
+This is my simple chatbot addon for wordpress
