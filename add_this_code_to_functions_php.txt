@@ -1,0 +1,43 @@
+// save chatbot conversation in the database
+
+add_action( 'wp_ajax_save_chatbot_form', 'save_chatbot_form' );
+add_action( 'wp_ajax_nopriv_save_chatbot_form', 'save_chatbot_form' );
+
+function save_chatbot_form(){
+
+	global $wpdb;
+
+	$mbd_chatbot = "{$wpdb->prefix}mbd_chatbot";
+
+	$data = array();
+
+	$get_arr_chat = explode("|", $_POST['convo']);
+
+	$data_insert = array(
+		'chat_q1' => $get_arr_chat[0],		
+		'chat_answer_q1' => $get_arr_chat[1],		
+		'chat_q2' => $get_arr_chat[2],		
+		'chat_answer_q2' => $get_arr_chat[3],		
+		'chat_q3' => $get_arr_chat[4],		
+		'chat_answer_q3' => $get_arr_chat[5],		
+	);
+
+	$format = array('%s');
+
+	$insert_chat = $wpdb->insert($mbd_chatbot, $data_insert, $format);
+
+	if($insert_chat){
+		$data['sent'] = 'Successfully sent';
+	} else {
+		$data['sent'] = 'Failed to sent. Please again later!';
+	}
+
+	echo json_encode($data);
+
+	die;
+
+}
+
+// chat bot function
+
+require get_template_directory() . '/inc/brokers_chatbot.php';
