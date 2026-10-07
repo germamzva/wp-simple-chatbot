@@ -1,0 +1,203 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.wp-simple-chatbot-container {
+    position: relative;
+    z-index: 1000;
+}
+
+#mbd_chatbot {
+    position: fixed;
+    bottom: 5%;
+    left: 1%;
+    width: 9%;
+    height: 5%;
+    background: transparent;
+    border: none;
+}
+
+#button_toggle {
+    background: #007bff;
+    border-radius: 30px;
+    position: relative;
+}
+
+#button_toggle::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #09f03e;
+    border-radius: 50%;
+    top: -11px;
+    left: 4%;
+    position: absolute;
+    border: 2px solid #fff;
+    z-index: 1000;
+}
+
+#button_toggle::after {
+    content: '';
+    border: none;
+}
+
+#message_counter {
+    position: absolute;
+    top: -8px;
+    right: 0;
+}
+
+#message_counter svg {
+    width: .7rem;
+    fill: #fff;
+}
+
+#message_counter i {
+    font-style: normal;
+    color: #fff;
+    font-size: 10px;
+    margin-left: -10px;
+    background: #f00;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 15px;
+}
+
+#close_chatbot {
+    cursor: pointer;
+    line-height: 2;
+    color: #fff;
+}
+
+#close_chatbot svg {
+    fill: #fff;
+    width: 1.425rem;
+    height: 1.425rem;
+}
+
+.message_wrapper {
+    height: 400px;
+    overflow-y: auto;
+    padding-right: 16px;
+}
+
+#message_sent p,
+#message_reply p,
+#message_warning p {
+    font-size: 12px;
+}
+
+#message_sent small,
+#message_reply small,
+#message_warning small {
+    font-size: 10px;
+    display: block;
+    text-align: right;
+}
+
+.typing_animate {
+    margin: 0;
+    width: 140px;
+    text-align: center;
+}
+
+.typing_animate small {
+    margin-right: 5px;
+}
+
+.typing_animate > div {
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    display: inline-block;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    background: #343a40;
+}
+
+.typing_animate .spin1 {
+    animation-delay: -0.32s;
+}
+
+.typing_animate .spin2 {
+    animation-delay: -0.16s;
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    #mbd_chatbot {
+        left: auto;
+        right: 0;
+        top: 0;
+    }
+}
+
+.wp-simple-chatbot .card-header img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 3px solid #28a745;
+}
+
+.wp-simple-chatbot .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wp-simple-chatbot .card-header .btn {
+    margin-left: auto;
+}
+
+.wp-simple-chatbot .dropdown-menu {
+    left: 0;
+    right: auto;
+}
+
+.wp-simple-chatbot .alert {
+    padding: 12px 14px;
+    border-radius: 12px;
+    margin: 10px 0;
+    max-width: 90%;
+}
+
+.wp-simple-chatbot .alert-primary {
+    background: #dfeeff;
+    border-color: #dfeeff;
+}
+
+.wp-simple-chatbot .alert-danger {
+    background: #f8d7da;
+    border-color: #f8d7da;
+}
+
+.wp-simple-chatbot #btn_send_chat {
+    width: 100%;
+    height: 38px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wp-simple-chatbot #btn_send_chat svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+.wp-simple-chatbot #input_type_here {
+    height: 38px;
+    font-size: 14px;
+    resize: none;
+}
